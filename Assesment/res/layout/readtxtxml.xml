@@ -15,24 +15,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Button" />
+        android:text="BrowseQuestion" />
 
     <TextView
         android:id="@+id/data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="56dp"
-        android:text="TextView" />
-
-      <Button
-          android:id="@+id/load"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignRight="@+id/browse"
-          android:layout_below="@+id/browse"
-          android:layout_marginTop="86dp"
-          android:text="Button1" />
+        android:layout_below="@+id/browse"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="34dp"
+        android:text="" />
 
 </RelativeLayout>
