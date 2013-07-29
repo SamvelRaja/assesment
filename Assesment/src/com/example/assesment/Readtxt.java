@@ -27,7 +27,7 @@ public class Readtxt extends Activity {
 	    setContentView(R.layout.readtxtxml);
 
 	    Button btn = (Button) this.findViewById(R.id.browse);
-	    Button btn2 = (Button) this.findViewById(R.id.load);
+	  
 	    btn.setOnClickListener(new OnClickListener() {
 	      @Override
 	      public void onClick(View v) {
@@ -39,25 +39,7 @@ public class Readtxt extends Activity {
 	        startActivityForResult(intent, ACTIVITY_CHOOSE_FILE);
 	      }
 	    });
-	    btn2.setOnClickListener(new OnClickListener() {
-		      @Override
-		      public void onClick(View v) {
-		    	 /* 
-		    	  Intent i = new Intent(getBaseContext(), Parsetype.class);  
-		          i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		          startActivity(i);
-		          */ 
-		          Database db=new Database(Readtxt.this);
-		          try {
-					db.open();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		          db.updat(aBuffer);
-		          db.close();
-		      }
-		    });
+	   
 	  }
 
 	  @Override

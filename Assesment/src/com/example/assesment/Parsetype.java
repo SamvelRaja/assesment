@@ -12,18 +12,19 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Parsetype extends Activity {
 	public Readtxt td=null;
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.readtxtxml);
+	    setContentView(R.layout.parse);
 	    Button btn = (Button) this.findViewById(R.id.browse);
-	    Button btn2 = (Button) this.findViewById(R.id.load);
+	    parsing();
 	    btn.setOnClickListener(new OnClickListener() {
 	      @Override
 	      public void onClick(View v) {
-	        //parsing();
+	        
 	    	  Intent i = new Intent(getBaseContext(), Match.class);  
 	          i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	          startActivity(i);
@@ -42,14 +43,12 @@ public class Parsetype extends Activity {
 			e.printStackTrace();
 		}
        String data=db.check();  
-        Log.d("database",data);
+         Log.d("database",data);
          db.close();
+         TextView parsedtxt=(TextView)findViewById(R.id.data);
+         parsedtxt.setText(data);
          String words[]=data.split(";");
          Log.d("length","wrds"+words.length);
-         for(int i=0;i<words.length;i++)
-         {
-        	 Log.d("words",words[i]);
-         }
          List wordslist=Arrays.asList(words);
          Collections.shuffle(wordslist);
          words=(String[]) wordslist.toArray();
