@@ -77,7 +77,7 @@ public class Database extends Activity {
 			cv.put(KEY_ID, 1);
 			urDatabase.insert(DATABASE_TABLE, null, cv);
 		}
-		public String check() {
+		public String getdata() {
 		String[] columns=new String[]{KEY_ROWID ,KEY_ID};
 		Cursor c=ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=2", null, null, null, null);
 		if(c!=null)
@@ -90,20 +90,32 @@ public class Database extends Activity {
 			
 		}
 
-		public long type(String i) {
+		public String gettype() {
+			String[] columns=new String[]{KEY_ROWID ,KEY_ID};
+			Cursor c=ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=1", null, null, null, null);
+			if(c!=null)
+			{
+				c.moveToFirst();
+				String xi=c.getString(1);
+				return xi;
+			}
+			return null;
+		}
+
+		public long loadquestions(String i) {
 			// TODO Auto-generated method stub
 			ContentValues cv=new ContentValues();
-			String xsr=Integer.toString(1);
+			String xsr=Integer.toString(2);
 			cv.put(KEY_ID, i);
 			String where="id=?";
 		    String[] value= {xsr};
 			return ourDatabase.update(DATABASE_TABLE,cv,where,value);
 		}
-
-		public long updat(String i) {
+		
+		public long loadtype(String i) {
 			// TODO Auto-generated method stub
 			ContentValues cv=new ContentValues();
-			String xsr=Integer.toString(2);
+			String xsr=Integer.toString(1);
 			cv.put(KEY_ID, i);
 			String where="id=?";
 		    String[] value= {xsr};

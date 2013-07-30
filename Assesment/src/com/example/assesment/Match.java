@@ -24,7 +24,7 @@ public class Match extends Activity{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-      String datastr=db.check();  
+      String datastr=db.getdata();  
        Log.d("database",datastr);
         db.close();
         String words[]=datastr.split(";");

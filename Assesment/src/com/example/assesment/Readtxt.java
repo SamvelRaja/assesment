@@ -80,7 +80,8 @@ public class Readtxt extends Activity {
 	                    Toast.LENGTH_SHORT).show();
 	          Database db=new Database(Readtxt.this);
 	          db.open();
-	          db.updat(aBuffer);
+	          db.loadquestions(aBuffer);
+	          db.loadtype(type);
 	          Log.d("database","ended");
 	          db.close();
 	    
