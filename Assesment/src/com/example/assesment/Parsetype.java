@@ -51,15 +51,23 @@ public class Parsetype extends Activity {
 	 		}
 	        String type=db.gettype(); 
 	        String words[]=type.split(";");
-	        String data=db.getdata();  
-	          Log.d("database",type);
-	          db.close();
+	        String data=db.getdata();
+	        
+	        db.close();
 	          
-	       
+	       if(words[0].equalsIgnoreCase("MTF"))
+	       {
+	    	  savematch(type,data);
 	    	  Intent i = new Intent(getBaseContext(), Match.class);  
 	          i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	          startActivity(i);
+	       }
 	      }
+
+		private void savematch(String type, String data) {
+			// TODO Auto-generated method stub
+			
+		}
 	    });
 	}
 
