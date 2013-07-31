@@ -16,11 +16,7 @@
         <activity
             android:name="com.example.assesment.Readtxt"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
          <activity
             android:name="com.example.assesment.Parsetype"
@@ -30,6 +26,20 @@
             android:name="com.example.assesment.Match"
             android:label="@string/app_name" >
             
+        </activity>
+        <activity
+            android:name="com.example.assesment.start"
+            android:label="@string/app_name" >
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name="com.example.assesment.studentmain"
+            android:label="@string/app_name" >
+           
         </activity>
     </application>
 

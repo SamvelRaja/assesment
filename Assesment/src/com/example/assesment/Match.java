@@ -48,8 +48,6 @@ public class Match extends Activity{
        	 Log.d("words",words[i]);
        	data.add(words[i]);
         }
-		 
-	
 	    setContentView(R.layout.match);
 	   GridView gridView = (GridView) findViewById(R.id.matchview);
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.list_item, data);

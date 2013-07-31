@@ -34,6 +34,7 @@ public class Parsetype extends Activity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.parse);
 	    Button btn = (Button) this.findViewById(R.id.load);
+	    Button btn2 = (Button) this.findViewById(R.id.cancel);
 	    lessontv=(TextView)findViewById(R.id.lesson);
 	    typetv=(TextView)findViewById(R.id.type);
 	    datalist = new ArrayList<HashMap<String, String>>();
@@ -56,10 +57,9 @@ public class Parsetype extends Activity {
 	        db.close();
 	          
 	          savedata(words[1],words[0],data);
-	    	  Intent i = new Intent(getBaseContext(), Match.class);  
-	    	  i.putExtra("arg1",words[1]);
-	    	  i.putExtra("arg2",words[0]);
+	    	  Intent i = new Intent(getBaseContext(), start.class);  
 	          startActivity(i);
+	          finish();
 	      
 	      }
 
@@ -76,6 +76,18 @@ public class Parsetype extends Activity {
 			mdb.close();
 		}
 	    });
+	    btn2.setOnClickListener(new OnClickListener() {
+		      @Override
+		      public void onClick(View v) {
+		  	
+		    	 
+		    	  Intent i = new Intent(getBaseContext(), start.class);  
+		          startActivity(i);
+		          finish();
+		      
+		      }
+
+		    });
 	}
 
 	
@@ -121,15 +133,6 @@ public class Parsetype extends Activity {
  	   question.setAdapter(adapter);
  	 
 	    
-	     Log.d("length","wrds"+words.length);
-         List wordslist=Arrays.asList(words);
-         Collections.shuffle(wordslist);
-         words=(String[]) wordslist.toArray();
-         for(int i=0;i<words.length;i++)
-         {
-        	 Log.d("words",words[i]);
-         }
-		 
 		
 	 }
 

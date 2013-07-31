@@ -88,6 +88,7 @@ public class Readtxt extends Activity {
 	          Intent i = new Intent(getBaseContext(), Parsetype.class);  
 	          i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	          startActivity(i);
+	          finish();
 	          
 	            
 	        } catch (Exception e) {
