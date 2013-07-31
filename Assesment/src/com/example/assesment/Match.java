@@ -31,7 +31,7 @@ public class Match extends Activity{
 			e.printStackTrace();
 		}
       //String datastr=mdb.extracttype(lesson,type); 
-        String datastr=mdb.getdata();
+        String datastr=mdb.getdata(lesson,type);
        Log.d("database",datastr);
         mdb.close();
         String words[]=datastr.split(";");
