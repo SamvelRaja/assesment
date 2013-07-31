@@ -55,18 +55,25 @@ public class Parsetype extends Activity {
 	        
 	        db.close();
 	          
-	       if(words[0].equalsIgnoreCase("MTF"))
-	       {
-	    	  savematch(type,data);
+	          savedata(words[1],words[0],data);
 	    	  Intent i = new Intent(getBaseContext(), Match.class);  
-	          i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	    	  i.putExtra("arg1",words[1]);
+	    	  i.putExtra("arg2",words[0]);
 	          startActivity(i);
-	       }
+	      
 	      }
 
-		private void savematch(String type, String data) {
+		private void savedata(String lesson,String type, String data) {
 			// TODO Auto-generated method stub
-			
+			maindatabase mdb=new maindatabase(Parsetype.this);
+			try {
+				mdb.open();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			mdb.load(lesson, type, data);
+			mdb.close();
 		}
 	    });
 	}
@@ -109,18 +116,12 @@ public class Parsetype extends Activity {
              
          }
          
-        ListView question = (ListView) findViewById(R.id.question);
- 	  //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.parsedlist_item, questions);
- 	   
+       ListView question = (ListView) findViewById(R.id.question);
  	   ListAdapter adapter = new SimpleAdapter(this,datalist,R.layout.parsedlist_item, new String[] { "Question","Answer"},new int[] { R.id.quest, R.id.ans });
-       // updating listview
- 	  question.setAdapter(adapter);
- 	  /*  ListView answer = (ListView) findViewById(R.id.answer);
-	    ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, answers);
-	    answer.setAdapter(adapter2);
-        */
+ 	   question.setAdapter(adapter);
+ 	 
 	    
-	    Log.d("length","wrds"+words.length);
+	     Log.d("length","wrds"+words.length);
          List wordslist=Arrays.asList(words);
          Collections.shuffle(wordslist);
          words=(String[]) wordslist.toArray();

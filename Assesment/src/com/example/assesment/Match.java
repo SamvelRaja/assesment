@@ -17,16 +17,23 @@ public class Match extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    ArrayList<String> data=new ArrayList<String>();
-	    Database db=new Database(Match.this);
+	    Bundle extras = getIntent().getExtras();
+	    String lesson = null,type = null;
+	    if (extras != null) {
+	       lesson = extras.getString("arg1");
+	       type=extras.getString("arg2");
+	    }
+	    maindatabase mdb=new maindatabase(Match.this);
         try {
-			db.open();
+			mdb.open();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-      String datastr=db.getdata();  
+      //String datastr=mdb.extracttype(lesson,type); 
+        String datastr=mdb.getdata();
        Log.d("database",datastr);
-        db.close();
+        mdb.close();
         String words[]=datastr.split(";");
         Log.d("length","wrds"+words.length);
         for(int i=0;i<words.length;i++)
