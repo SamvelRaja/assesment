@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Database extends Activity {
+public class Database  {
 	public static final String KEY_ROWID="id";
 	public static final String KEY_ID="iden";
 	
