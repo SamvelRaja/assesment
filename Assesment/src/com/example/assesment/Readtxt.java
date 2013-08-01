@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;

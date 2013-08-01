@@ -1,6 +1,5 @@
 package com.example.assesment;
 
-import java.sql.SQLException;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +15,7 @@ public class start extends Activity {
 	    Button teach = (Button) this.findViewById(R.id.teacher);
 	    Button stud= (Button) this.findViewById(R.id.student);
 	    teach.setOnClickListener(new OnClickListener() {
-		      @Override
+		     @Override
 		      public void onClick(View v) {
 		    	  Intent i = new Intent(getBaseContext(), Readtxt.class);
 		    	  startActivity(i);
